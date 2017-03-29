@@ -1,0 +1,41 @@
+@model IEnumerable<ZenithSociety.Models.Activity>
+
+@{
+    ViewData["Title"] = "Activities";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createActivity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createActivity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.activityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.activityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.activityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
